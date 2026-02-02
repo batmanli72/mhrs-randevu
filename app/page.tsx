@@ -1,49 +1,28 @@
-import Link from 'next/link';
+"use client";
+import { useRouter } from "next/navigation";
 
-export default function AnaSayfa() {
+export default function Home() {
+  const router = useRouter();
+
   return (
-    <main className="ana-konteyner" style={{ textAlign: 'center', padding: '50px' }}>
-      <h1>MHRS Randevu Sistemi</h1>
-      <p>Lütfen devam etmek için giriş tipinizi seçiniz:</p>
+    <div style={{ padding: 40 }}>
+      <h1>Panel Seç</h1>
 
-      <div className="giris-secenekleri" style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '30px' }}>
-        
-        {/* Kullanıcı (Hasta) Girişi */}
-        <Link href="/user">
-          <button style={butonStili}>
-            👤 Hasta Girişi
-          </button>
-        </Link>
+      <button onClick={() => router.push("/admin")}>
+        Admin Paneli
+      </button>
 
-        {/* Doktor Girişi */}
-        <Link href="/doctor">
-          <button style={butonStili}>
-            👨‍⚕️ Doktor Girişi
-          </button>
-        </Link>
+      <br /><br />
 
-        {/* Admin Girişi */}
-        <Link href="/admin">
-          <button style={{ ...butonStili, backgroundColor: '#d32f2f' }}>
-            ⚙️ Admin Girişi
-          </button>
-        </Link>
+      <button onClick={() => router.push("/doctor")}>
+        Doktor Paneli
+      </button>
 
-      </div>
-    </main>
+      <br /><br />
+
+      <button onClick={() => router.push("/user")}>
+        Hasta Paneli
+      </button>
+    </div>
   );
 }
-
-const butonStili = {
-  padding: '15px 30px',
-  fontSize: '16px',
-  cursor: 'pointer',
-  borderRadius: '8px',
-  border: 'none',
-  backgroundColor: '#1976d2',
-  color: 'white',
-  fontWeight: 'bold',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px'
-};
