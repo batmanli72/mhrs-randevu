@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function AnaSayfa() {
   return (
     <main className="ana-konteyner" style={{ textAlign: 'center', padding: '50px' }}>
@@ -6,27 +8,32 @@ export default function AnaSayfa() {
 
       <div className="giris-secenekleri" style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '30px' }}>
         
-        {/* Kullanıcı Girişi - Vatandaşlar için */}
-        <button style={butonStili}>
-          👤 Hasta Girişi
-        </button>
+        {/* Kullanıcı (Hasta) Girişi */}
+        <Link href="/user">
+          <button style={butonStili}>
+            👤 Hasta Girişi
+          </button>
+        </Link>
 
-        {/* Doktor Girişi - Hekimler için */}
-        <button style={butonStili}>
-          👨‍⚕️ Doktor Girişi
-        </button>
+        {/* Doktor Girişi */}
+        <Link href="/doctor">
+          <button style={butonStili}>
+            👨‍⚕️ Doktor Girişi
+          </button>
+        </Link>
 
-        {/* Admin Girişi - Sistem yönetimi için */}
-        <button style={{ ...butonStili, backgroundColor: '#d32f2f' }}>
-          ⚙️ Admin Girişi
-        </button>
+        {/* Admin Girişi */}
+        <Link href="/admin">
+          <button style={{ ...butonStili, backgroundColor: '#d32f2f' }}>
+            ⚙️ Admin Girişi
+          </button>
+        </Link>
 
       </div>
     </main>
   );
 }
 
-// Butonlar için ortak basit bir stil objesi
 const butonStili = {
   padding: '15px 30px',
   fontSize: '16px',
@@ -35,5 +42,8 @@ const butonStili = {
   border: 'none',
   backgroundColor: '#1976d2',
   color: 'white',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '10px'
 };
